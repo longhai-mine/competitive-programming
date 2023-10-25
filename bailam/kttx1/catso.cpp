@@ -22,20 +22,28 @@ typedef pair<ll, ll> pll;
 #define FORD(i,n,a) for(ll i=n;i>=a;i++)
 #define rf(i,e,s) for(ll i=e;i>=s;i--)
 #define fastio ios::sync_with_stdio(false);cin.tie(nullptr);cout.tie(nullptr);cerr.tie(nullptr)
-#define NAME "lsnh"  
+#define NAME "a"  
 
-double t, k, l;
+string s, a, b, ans1, ans2;
 int n;
+
+
 
 main() {
 	fastio;
-	freopen(NAME".inp", "r", stdin);
-	freopen(NAME".out", "w", stdout);
-	cin >> t >> n >> k;
-	FOR(i , 1 , n * 12) {
-		t += t * (k / 100);
-		//cout << l << endl;
+	//freopen(NAME".inp", "r", stdin);
+	//freopen(NAME".out", "w", stdout);
+	cin >> s;
+	n = s.size();
+	FOR(i, 1, n - 1) {
+		a = s.substr(0, i);
+		b = s.substr(i, n - 1);
+		//cout << a << " " << b << endl;
+		// stringstream chuoi1, chuoi2;
+		// chuoi1 << a; chuoi2 << b;
+		// int x, y;
+		//chuoi1 >> x; chuoi2 >> y;
+		if(b[0] != '0')
+		cout << a << " " <<  b << endl;
 	}
-	double ans = t / (n * 12);
-	cout << fixed << setprecision(5) << ans;
 }
