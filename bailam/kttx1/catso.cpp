@@ -24,26 +24,28 @@ typedef pair<ll, ll> pll;
 #define fastio ios::sync_with_stdio(false);cin.tie(nullptr);cout.tie(nullptr);cerr.tie(nullptr)
 #define NAME "a"  
 
-string s, a, b, ans1, ans2;
+string s, a, b;
 int n;
-
+int ans1, ans2 = LLONG_MAX;
 
 
 main() {
 	fastio;
-	//freopen(NAME".inp", "r", stdin);
-	//freopen(NAME".out", "w", stdout);
+	freopen(NAME".inp", "r", stdin);
+	freopen(NAME".out", "w", stdout);
 	cin >> s;
 	n = s.size();
 	FOR(i, 1, n - 1) {
 		a = s.substr(0, i);
 		b = s.substr(i, n - 1);
-		//cout << a << " " << b << endl;
-		// stringstream chuoi1, chuoi2;
-		// chuoi1 << a; chuoi2 << b;
-		// int x, y;
-		//chuoi1 >> x; chuoi2 >> y;
-		if(b[0] != '0')
-		cout << a << " " <<  b << endl;
+		stringstream chuoi1, chuoi2;
+		chuoi1 << a; chuoi2 << b;
+		int x, y;
+		chuoi1 >> x; chuoi2 >> y;
+		if(y >= x && b[0] != '0' && ans2 > y)
+		{
+			ans1 = x; ans2 = y;
+		}
 	}
+	cout << ans1 << " " << ans2;
 }
