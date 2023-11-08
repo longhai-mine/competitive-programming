@@ -22,16 +22,29 @@ typedef pair<ll, ll> pll;
 #define FORD(i,n,a) for(ll i=n;i>=a;i++)
 #define rf(i,e,s) for(ll i=e;i>=s;i--)
 #define fastio ios::sync_with_stdio(false);cin.tie(nullptr);cout.tie(nullptr);cerr.tie(nullptr)
-#define NAME "tichmax"  
+#define NAME "a"  
 
-int n, a[(int)1e4 + 10];
+int n, m, a[(int)1e5 + 10], b[(int)1e5 + 10];
 
 main() {
 	fastio;
-	freopen(NAME".inp", "r", stdin);
-	freopen(NAME".out", "w", stdout);
-	cin >> n;
-	FOR(i, 1, n) cin >> a[i];
-	sort(a + 1, a + n + 1);
-	cout << max(a[n] * a[n - 1] * a[n - 2], a[1] * a[2] * a[n], a[1] * a[3] * a[n], a[1] * a[2] * a[3]);
+	//freopen(NAME".inp", "r", stdin);
+	//freopen(NAME".out", "w", stdout);
+	cin >> n >> m;
+	for(int i = 1; i <= n; i++) cin >> a[i];
+	for(int j = 1; j <= m; j++) cin >> b[j];
+	// /sort(a + 1 , a + n + 1);
+	for(int i = 1; i <= m; i++) {
+		int l = 1, r = n, ans = 0;
+		while(l <= r) {
+			int mid = (l + r) / 2;
+			if(b[i] > a[mid]) {
+				ans = mid;
+				l = mid + 1;
+			} else {
+				r = mid - 1;
+			}
+		}
+		cout << ans << endl;
+	}
 }
